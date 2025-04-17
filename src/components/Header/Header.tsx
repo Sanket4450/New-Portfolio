@@ -3,6 +3,9 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { NavHashLink, HashLink } from 'react-router-hash-link'
 import { useState } from 'react'
 import Resume from '../../assets/Vinayak_Singh_Resume.pdf'
+import { PersonalInfo } from '../../data/personal-info'
+import { NavItems } from '../../data/nav-items'
+import { CONSTANTS } from '../../lib/constants'
 export function Header() {
   const [isActive, setActive] = useState(false)
   function toggleTheme() {
@@ -15,9 +18,13 @@ export function Header() {
   return (
     <Container className="header-fixed">
       <Router>
-        <HashLink smooth to="#home" className="logo">
-          <span>{"<Vinayak "}</span>
-          <span>{" Singh/>"}</span>
+        <HashLink
+          smooth
+          to="#home"
+          className="logo">
+          <span>{'<'}</span>
+          <span>{PersonalInfo.fullName}</span>
+          <span>{'/>'}</span>
         </HashLink>
         <input
           onChange={toggleTheme}
@@ -26,21 +33,21 @@ export function Header() {
           id="switch"
           name="mode"
         />
-        <label htmlFor="switch">Toggle</label>
+        <label htmlFor="switch">{CONSTANTS.TOGGLE}</label>
         <nav className={isActive ? 'active' : ''}>
-          <NavHashLink smooth to="#home" onClick={closeMenu}>
-            Home
-          </NavHashLink>
-          <NavHashLink smooth to="#about" onClick={closeMenu}>
-            About me
-          </NavHashLink>
-          <NavHashLink smooth to="#project" onClick={closeMenu}>
-            Project
-          </NavHashLink>
-          <NavHashLink smooth to="#contact" onClick={closeMenu}>
-            Contact
-          </NavHashLink>
-          <a href={Resume} download className="button">
+          {NavItems.map((item) => (
+            <NavHashLink
+              smooth
+              to={item.path}
+              onClick={closeMenu}>
+              {item.label}
+            </NavHashLink>
+          ))}
+
+          <a
+            href={Resume}
+            download
+            className="button">
             Resume
           </a>
         </nav>
@@ -51,8 +58,7 @@ export function Header() {
           className={isActive ? 'menu active' : 'menu'}
           onClick={() => {
             setActive(!isActive)
-          }}
-        ></div>
+          }}></div>
       </Router>
     </Container>
   )
