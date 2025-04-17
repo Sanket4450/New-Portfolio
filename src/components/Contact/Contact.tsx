@@ -2,6 +2,8 @@ import { Container } from './styles'
 import emailIcon from '../../assets/email-icon.svg'
 import phoneIcon from '../../assets/phone-icon.svg'
 import { Form } from '../Form/Form'
+import { EMAIL_HREF, PersonalInfo, PHONE_NO_HREF } from '../../data/personal-info'
+import { CONSTANTS } from '../../lib/constants'
 
 export function Contact() {
   return (
@@ -13,22 +15,24 @@ export function Contact() {
       </header>
       <div className="contacts">
         <div>
-          <a href="mailto:vinayak@vinayaksingh.com">
+          <a href={EMAIL_HREF}>
             <img
               src={emailIcon}
               alt="Email"
             />
           </a>
-          <a href="mailto:vinayak@vinayaksingh.com">vinayak@vinayaksingh.com</a>
+          <a href={EMAIL_HREF}>{PersonalInfo.email}</a>
         </div>
         <div>
-          <a href="tel:+919630576848">
+          <a href={PHONE_NO_HREF}>
             <img
               src={phoneIcon}
               alt="Phone No"
             />
           </a>
-          <a href="tel:+919630576848">(+91) 9630576848</a>
+          <a href={PHONE_NO_HREF}>
+            (+{CONSTANTS.PHONE_CODE}) {PersonalInfo.phone}
+          </a>
         </div>
       </div>
       <Form></Form>

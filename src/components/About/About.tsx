@@ -1,20 +1,9 @@
-import { Container } from "./styles";
-import VinayakSingh from "../../assets/VinayakSingh.webp";
-import python from "../../assets/python.svg"
-import java from "../../assets/java.svg"
-import wordpress from "../../assets/wordpress.svg";
-import shopify from "../../assets/shopify.svg";
-import htmlIcon from "../../assets/html-icon.svg";
-import cssIcon from "../../assets/css-icon.svg";
-import jsIcon from "../../assets/js-icon.svg";
-// import nodeIcon from "../../assets/node-icon.svg";
-import reactIcon from "../../assets/react-icon.svg";
-import typescriptIcon from "../../assets/typescript-icon.svg";
-import vueIcon from "../../assets/vue-icon.svg";
-import boostrapIcon from "../../assets/bootstrap-icon.svg";
-import ScrollAnimation from "react-animate-on-scroll";
-import { ABOUT_SECTIONS, PersonalInfo } from '../../data/personal-info'
-import { LABELS } from '../../lib/constants'
+import { Container } from './styles'
+import ScrollAnimation from 'react-animate-on-scroll'
+import { ABOUT_SECTIONS } from '../../data/personal-info'
+import { CONSTANTS, LABELS } from '../../lib/constants'
+import { EXP_SECTIONS } from '../../data/experiences'
+import './About.css'
 
 export function About() {
   return (
@@ -28,148 +17,82 @@ export function About() {
           <ScrollAnimation
             animateIn="fadeInLeft"
             delay={0.1 * 1000}>
-            <p style={{ marginTop: 12 }}>{section}</p>
+            <p style={{ marginTop: 12, fontSize: 15 }}>{section}</p>
           </ScrollAnimation>
         ))}
-
-        <ScrollAnimation
-          animateIn="fadeInLeft"
-          delay={550}>
-          <div className="experience">
-            <h3>Experience:</h3>
-            <h4>{PersonalInfo.designation}</h4>
-            <p>KIWIS AND BROWNIES IT SOLUTIONS | October 2024 - Present</p>
-            <p>Bangalore, India</p>
-          </div>
-        </ScrollAnimation>
-
-        <ScrollAnimation
-          animateIn="fadeInLeft"
-          delay={0.4 * 1000}>
-          <h3>Here are my main skills:</h3>
-        </ScrollAnimation>
-        <div className="hard-skills">
-          <div className="hability">
-            <ScrollAnimation
-              animateIn="fadeInUp"
-              delay={0.1 * 1000}>
-              <img
-                src={python}
-                alt="python"
-              />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation
-              animateIn="fadeInUp"
-              delay={0.11 * 1000}>
-              <img
-                src={java}
-                alt="java"
-              />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation
-              animateIn="fadeInUp"
-              delay={0.12 * 1000}>
-              <img
-                src={jsIcon}
-                alt="JavaScript"
-              />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation
-              animateIn="fadeInUp"
-              delay={0.13 * 1000}>
-              <img
-                src={reactIcon}
-                alt="React"
-              />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation
-              animateIn="fadeInUp"
-              delay={0.14 * 1000}>
-              <img
-                src={typescriptIcon}
-                alt="Typescript"
-              />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation
-              animateIn="fadeInUp"
-              delay={0.15 * 1000}>
-              <img
-                src={vueIcon}
-                alt="Vue"
-              />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation
-              animateIn="fadeInUp"
-              delay={0.16 * 1000}>
-              <img
-                src={wordpress}
-                alt="Wordpress"
-              />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation
-              animateIn="fadeInUp"
-              delay={0.17 * 1000}>
-              <img
-                src={shopify}
-                alt="shopify"
-              />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation
-              animateIn="fadeInUp"
-              delay={0.18 * 1000}>
-              <img
-                src={htmlIcon}
-                alt="Html"
-              />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation
-              animateIn="fadeInUp"
-              delay={0.19 * 1000}>
-              <img
-                src={cssIcon}
-                alt="Css"
-              />
-            </ScrollAnimation>
-          </div>
-          <div className="hability">
-            <ScrollAnimation
-              animateIn="fadeInUp"
-              delay={0.2 * 1000}>
-              <img
-                src={boostrapIcon}
-                alt="bootstrap"
-              />
-            </ScrollAnimation>
-          </div>
-        </div>
       </div>
-      <div className="about-image">
-        <ScrollAnimation
-          animateIn="fadeInRight"
-          delay={0.21 * 1000}>
-          <img
-            src={VinayakSingh}
-            alt={PersonalInfo.fullName}
-          />
+
+      <div className="about-text experience-container">
+        <ScrollAnimation animateIn="fadeInLeft">
+          <h2>{LABELS.EXPERIENCE}</h2>
         </ScrollAnimation>
+
+        {EXP_SECTIONS.map((section, index) => (
+          <ScrollAnimation
+            key={index}
+            animateIn="fadeInUp"
+            delay={700 + index * 200} // Staggered animation for each company
+            duration={1.5}>
+            <div className="company-section">
+              {/* Company Logo */}
+              <div className="company-logo">
+                <img
+                  src={section.company.logo}
+                  alt={`${section.company.name} logo`}
+                />
+              </div>
+
+              {/* Company Name and URL */}
+              <div className="company-info">
+                <a
+                  href={section.company.url}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <h4>{section.company.name}</h4>
+                </a>
+              </div>
+
+              {/* Roles */}
+              {section.roles.map((role, roleIndex) => (
+                <div
+                  key={roleIndex}
+                  className="role-section">
+                  <h5>{role.role}</h5>
+                  <p>
+                    {new Date(role.start).toLocaleDateString('en-US', {
+                      month: 'long',
+                      year: 'numeric',
+                    })}{' '}
+                    -{' '}
+                    {role.end === CONSTANTS.CURRENT
+                      ? 'Present'
+                      : new Date(role.end).toLocaleDateString('en-US', {
+                          month: 'long',
+                          year: 'numeric',
+                        })}
+                  </p>
+
+                  {/* Role Details */}
+                  <ul>
+                    {role.details.map((detail, detailIndex) => (
+                      <li key={detailIndex}>{detail}</li>
+                    ))}
+                  </ul>
+
+                  {/* Skills */}
+                  <div className="skills">
+                    <strong>Skills:</strong>
+                    <ul>
+                      {role.skills.map((skill, skillIndex) => (
+                        <li key={skillIndex}>{skill}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </ScrollAnimation>
+        ))}
       </div>
     </Container>
   )
