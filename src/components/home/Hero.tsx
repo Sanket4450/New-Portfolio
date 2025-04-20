@@ -1,4 +1,4 @@
-import { PERSONAL_INFO, SOCIAL_MEDIA_ICONS } from '@/data/personal-info'
+import { PERSONAL_INFO, PERSONAL_INFO_LINKS, SOCIAL_MEDIA_ICONS } from '@/data/personal-info'
 import { HASH_PATHS, LABELS } from '@/lib/constants'
 import { VALUES } from '@/lib/values'
 import { motion } from 'motion/react'
@@ -54,6 +54,8 @@ export const Hero = () => {
 
           {/* Contact Button */}
           <ActionBtn
+            type="link"
+            href={PERSONAL_INFO_LINKS.phone}
             child={LABELS.CONTACT}
             className="text-[15px] px-4 py-2 mt-4"
           />
@@ -61,7 +63,7 @@ export const Hero = () => {
           {/* Social Icons */}
           <motion.div
             variants={fadeInUp}
-            className="flex space-x-4 mt-4">
+            className="flex space-x-4 mt-8">
             {SOCIAL_MEDIA_ICONS.map((i, idx) => (
               <a
                 key={idx}

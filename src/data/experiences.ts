@@ -1,8 +1,9 @@
 import { CONSTANTS, RESOURCES } from '../lib/constants'
 import FirstCompanyLogo from '../assets/images/first-company-logo.jpeg'
 import SecondCompanyLogo from '../assets/images/second-company-logo.jpeg'
+import { Experience } from '@/types/common'
 
-export const EXP_SECTIONS = [
+export const EXP_SECTIONS: Experience[] = [
   {
     company: {
       name: 'Implies Solution',
@@ -12,9 +13,9 @@ export const EXP_SECTIONS = [
     },
     roles: [
       {
-        role: 'Full Stack Developer',
-        start: '2024-05-31T18:30:00.000Z',
-        end: CONSTANTS.CURRENT,
+        title: 'Full Stack Developer',
+        startDate: '2024-05-31T18:30:00.000Z',
+        endDate: CONSTANTS.CURRENT,
         details: ['Working as a Full Stack Developer in MERN technologies'],
         skills: [
           RESOURCES.NESTJS,
@@ -42,9 +43,9 @@ export const EXP_SECTIONS = [
     },
     roles: [
       {
-        role: 'MERN Stack Developer',
-        start: '2023-05-31T18:30:00.000Z',
-        end: '2024-04-30T18:30:00.000Z',
+        title: 'MERN Stack Developer',
+        startDate: '2023-05-31T18:30:00.000Z',
+        endDate: '2024-04-30T18:30:00.000Z',
         details: [
           'Worked as a Full Stack Web Developer, with variety of tools & technologies like JavaScript, Typescript, React, Node.js, Express, SQL, MongoDB, etc.',
         ],
@@ -62,9 +63,9 @@ export const EXP_SECTIONS = [
         ],
       },
       {
-        role: 'Web Development Intern',
-        start: '2022-11-30T18:30:00.000Z',
-        end: '2023-04-30T18:30:00.000Z',
+        title: 'Web Development Intern',
+        startDate: '2022-11-30T18:30:00.000Z',
+        endDate: '2023-04-30T18:30:00.000Z',
         details: [
           'Worked as an Intern in Web development, learnt various programming languages & technologies like C, HTML, CSS, JavaScript, React, etc.',
         ],

@@ -17,6 +17,7 @@ export const PERSONAL_INFO = {
 
 export const PERSONAL_INFO_LINKS = {
   phone: `tel:+${VALUES.PHONE_CODE}${removeSpaces(PERSONAL_INFO.phone)}`,
+  whatsapp: `tel:+${VALUES.PHONE_CODE}${removeSpaces(PERSONAL_INFO.phone)}`,
   email: `mailto:${PERSONAL_INFO.email}`,
   linkedIn: 'https://www.linkedin.com/in/sankettalaviya',
   github: 'https://github.com/Sanket4450',
@@ -33,7 +34,7 @@ export const SOCIAL_MEDIA_ICONS = [
   {
     label: LABELS.WHATSAPP,
     icon: WhatsappIcon,
-    url: PERSONAL_INFO_LINKS.phone,
+    url: PERSONAL_INFO_LINKS.whatsapp,
   },
   {
     label: LABELS.LINKEDIN,

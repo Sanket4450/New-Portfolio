@@ -15,3 +15,32 @@ export interface FormFieldType {
   required?: boolean
   spaceNotAllowed?: boolean
 }
+
+export interface Project {
+  title: string
+  subTitle: string
+  preview: string
+  github: string
+  details: string[]
+  technologies: Resource[]
+}
+
+export interface Experience {
+  company: Company
+  roles: Role[]
+}
+
+export interface Company {
+  name: string
+  url: string
+  logo: string
+  location: string
+}
+
+export interface Role {
+  title: string
+  startDate: string
+  endDate: string
+  details: string[]
+  skills: Resource[]
+}
