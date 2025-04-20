@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 bg-layer w-full flex justify-between items-center',
+        'fixed top-0 z-10 bg-layer w-full flex justify-between items-center',
         VALUES.PADDING_CLASS
       )}
       style={{

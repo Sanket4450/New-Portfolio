@@ -4,6 +4,7 @@ import { getFadeInUp } from '@/lib/data'
 import { Project } from '@/types/common'
 import { GithubIcon } from '../icons/github'
 import { VALUES } from '@/lib/values'
+import { memo } from 'react'
 
 interface Props {
   data: Project
@@ -11,7 +12,7 @@ interface Props {
 
 const fadeInUp = getFadeInUp()
 
-export const ProjectCard: React.FC<Props> = ({ data }) => {
+export const ProjectCard: React.FC<Props> = memo(({ data }) => {
   return (
     <motion.div
       variants={fadeInUp}
@@ -76,4 +77,4 @@ export const ProjectCard: React.FC<Props> = ({ data }) => {
       </div>
     </motion.div>
   )
-}
+})

@@ -88,6 +88,14 @@ export const HASH_PATHS = {
   CONTACT: '#contact',
 }
 
+export const SCREEN_SIZES = {
+  PH: 500,
+  MD: 768,
+  LG: 1024,
+  XL: 1280,
+  XXL: 1536,
+}
+
 export const TECHNOLOGIES = {
   HTML: 'HTML',
   CSS: 'CSS',

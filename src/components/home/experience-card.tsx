@@ -5,6 +5,7 @@ import { VALUES } from '@/lib/values'
 import { ExperienceRoles } from './experience-roles'
 import { EXP_SECTIONS } from '@/data/experiences'
 import { CONSTANTS } from '@/lib/constants'
+import { memo } from 'react'
 
 interface Props {
   currentIdx: number
@@ -13,7 +14,7 @@ interface Props {
 
 const fadeInUp = getFadeInUp()
 
-export const ExperienceCard: React.FC<Props> = ({ currentIdx, data }) => {
+export const ExperienceCard: React.FC<Props> = memo(({ currentIdx, data }) => {
   return (
     <motion.div variants={fadeInUp}>
       {/* Company Logo and Details */}
@@ -62,4 +63,4 @@ export const ExperienceCard: React.FC<Props> = ({ currentIdx, data }) => {
       )}
     </motion.div>
   )
-}
+})

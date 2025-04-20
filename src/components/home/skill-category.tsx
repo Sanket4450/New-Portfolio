@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils'
 import { VALUES } from '@/lib/values'
 import { Resource } from '@/types/common'
 import { motion } from 'motion/react'
+import { memo } from 'react'
 
 interface Props {
   title: string
@@ -14,7 +15,7 @@ const staggerChildren = getStaggerChildren(
   VALUES.SKILLS_STAGGER_CHILDREN_DURATION
 )
 
-export const SkillCategory: React.FC<Props> = ({ title, skills }) => {
+export const SkillCategory: React.FC<Props> = memo(({ title, skills }) => {
   return (
     <div className="mb-12">
       {/* Category Title */}
@@ -46,10 +47,12 @@ export const SkillCategory: React.FC<Props> = ({ title, skills }) => {
             </div>
 
             {/* Skill Name */}
-            <p className="max-phone:h-9 phone:text-lg font-medium">{skill.title}</p>
+            <p className="max-phone:h-9 phone:text-lg font-medium">
+              {skill.title}
+            </p>
           </motion.div>
         ))}
       </motion.div>
     </div>
   )
-}
+})
