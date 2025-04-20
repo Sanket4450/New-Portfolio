@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils'
 import { SectionTitle } from './section-title'
+import { VALUES } from '@/lib/values'
 
 interface Props {
   size?: 'xs' | 'sm' | 'md' | 'lg'
@@ -18,14 +19,15 @@ export const Section: React.FC<Props> = ({
     <section
       id={id}
       className={cn(
-        'py-16 px-4 md:px-8 lg:px-16 mx-auto',
+        'py-16 mx-auto',
+        VALUES.PADDING_CLASS,
         size === 'lg'
-          ? 'max-w-7xl'
+          ? 'w-full 2xl:max-w-[92rem]'
           : size === 'sm'
-          ? 'max-w-5xl'
+          ? 'w-full max-w-5xl'
           : size === 'xs'
           ? 'max-w-4xl'
-          : 'max-w-6xl'
+          : 'max-w-6xl 2xl:max-w-[80rem]'
       )}>
       {/* Section Title */}
       <SectionTitle title={title} />

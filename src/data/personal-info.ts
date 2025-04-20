@@ -5,6 +5,7 @@ import { GithubIcon } from '@/components/icons/github'
 import { TelegramIcon } from '@/components/icons/telegram'
 import { VALUES } from '@/lib/values'
 import { removeSpaces } from '@/lib/utils'
+import { Icon } from '@/types/common'
 
 export const PERSONAL_INFO = {
   fullName: 'Sanket Talaviya',
@@ -25,12 +26,12 @@ export const PERSONAL_INFO_LINKS = {
 }
 
 export const ABOUT_SECTIONS = [
-  'I am a MERN stack developer with a deep passion for crafting web applications. With expertise in React, Node.js, Express, JavaScript, TypeScript, MongoDB, PostgreSQL, AWS, GCP, and SQL, I thrive in dynamic environments where learning, innovation and problem-solving take place.',
-  "My expertise and experience relies on both front-end as well as back-end development. I excel in building responsive user interfaces with React, while also designing robust server-side systems using Node.js and Express. Leveraging MongoDB and SQL, I ensure efficient data management and seamless integration of APIs, delivering scalable solutions according to clients' requirements.",
-  "My vision is to continually push the boundaries of web development, staying at the forefront of emerging technologies and best practices. I am committed to delivering high-quality, maintainable code that not only meets but exceeds expectations. Let's connect and embark on a journey of innovation and growth together in the dynamic world of MERN stack development.",
+  "I'm Sanket Talaviya, a passionate MERN Stack Developer with 3+ years of experience in crafting dynamic web applications. I specialize in React for intuitive front-end experiences and Node.js/Express for robust back-end solutions, while leveraging databases like MongoDB and PostgreSQL to deliver scalable projects.",
+  'From designing responsive UIs to architecting efficient APIs, I thrive in solving complex problems with clean, maintainable code. My tech stack includes AWS, GCP, TypeScript, and more—ensuring cutting-edge solutions tailored to client needs.',
+  "With a commitment to innovation and continuous learning, I'm always eager to explore new technologies and create impactful digital experiences. Let's connect and build something extraordinary together!",
 ]
 
-export const SOCIAL_MEDIA_ICONS = [
+export const SOCIAL_MEDIA_ICONS: Icon[] = [
   {
     label: LABELS.WHATSAPP,
     icon: WhatsappIcon,

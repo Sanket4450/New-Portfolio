@@ -35,9 +35,16 @@ export const ProjectCard: React.FC<Props> = ({ data }) => {
       </div>
 
       {/* data Title */}
-      <h3 className="flex items-center text-xl font-bold overflow-hidden whitespace-nowrap">
-        {data.title}
-      </h3>
+      <div className="flex items-center gap-2">
+        <h3 className="shrink-0 flex items-center text-xl font-bold overflow-hidden whitespace-nowrap">
+          {data.title}
+        </h3>
+        {data.subTitle && (
+          <p className="mt-1 text-sm text-muted-text font-semibold">
+            - {data.subTitle}
+          </p>
+        )}
+      </div>
 
       {/* data Preview */}
       <img

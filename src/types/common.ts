@@ -16,6 +16,12 @@ export interface FormFieldType {
   spaceNotAllowed?: boolean
 }
 
+export interface Icon {
+  label: string
+  icon: React.FC<IconProps>
+  url: string
+}
+
 export interface Project {
   title: string
   subTitle: string

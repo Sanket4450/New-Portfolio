@@ -13,6 +13,7 @@ const staggerSections = getStaggerChildren(
 export const AboutMe = () => {
   return (
     <Section
+      size="sm"
       id={HASH_PATHS.ABOUT}
       title={LABELS.ABOUT_ME}>
       <div className="flex justify-center">
@@ -21,7 +22,7 @@ export const AboutMe = () => {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="w-full md:w-[80%] xl:w-[60%] space-y-4">
+          className="w-full space-y-4">
           {ABOUT_SECTIONS.map((section, idx) => (
             <motion.p
               key={idx}

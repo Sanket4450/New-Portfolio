@@ -1,10 +1,16 @@
-import { PERSONAL_INFO, PERSONAL_INFO_LINKS, SOCIAL_MEDIA_ICONS } from '@/data/personal-info'
+import {
+  PERSONAL_INFO,
+  PERSONAL_INFO_LINKS,
+  SOCIAL_MEDIA_ICONS,
+} from '@/data/personal-info'
 import { HASH_PATHS, LABELS } from '@/lib/constants'
-import { VALUES } from '@/lib/values'
 import { motion } from 'motion/react'
 import { Illustration } from '../icons/illustration'
 import { getFadeInUp, getStaggerChildren } from '@/lib/data'
 import { ActionBtn } from '../ActionBtn'
+import { SocialIcon } from './social-icon'
+import { cn } from '@/lib/utils'
+import { VALUES } from '@/lib/values'
 
 const fadeInUp = getFadeInUp()
 const staggerChildren = getStaggerChildren()
@@ -13,10 +19,11 @@ export const Hero = () => {
   return (
     <section
       id={HASH_PATHS.HOME}
-      className="w-full h-[100svh] flex items-center justify-between"
-      style={{
-        padding: `0 ${VALUES.LAYOUT_PADDING}px`,
-      }}>
+      className={cn(
+        'h-[34rem] md:h-[100svh] w-full flex items-center justify-between',
+        VALUES.PADDING_CLASS
+      )}
+      style={{ paddingTop: VALUES.HEADER_HEIGHT }}>
       {/* Left Side (Text Content) */}
       <div className="w-full md:w-1/2">
         <motion.div
@@ -27,21 +34,21 @@ export const Hero = () => {
           {/* Hello Message */}
           <motion.h3
             variants={fadeInUp}
-            className="text-xl font-light">
+            className="text-xl 2xl:text-2xl font-light">
             Hello 👋, I'm
           </motion.h3>
 
           {/* Name */}
           <motion.h1
             variants={fadeInUp}
-            className="text-5xl font-bold">
+            className="text-5xl 2xl:text-6xl font-bold">
             {PERSONAL_INFO.fullName}
           </motion.h1>
 
           {/* Job Title */}
           <motion.p
             variants={fadeInUp}
-            className="text-xl font-semibold text-green-500">
+            className="text-xl 2xl:text-2xl font-semibold text-green-500">
             {PERSONAL_INFO.designation}
           </motion.p>
 
@@ -57,7 +64,7 @@ export const Hero = () => {
             type="link"
             href={PERSONAL_INFO_LINKS.phone}
             child={LABELS.CONTACT}
-            className="text-[15px] px-4 py-2 mt-4"
+            className="text-[15px] 2xl:text-lg px-4 py-2 mt-4"
           />
 
           {/* Social Icons */}
@@ -65,20 +72,17 @@ export const Hero = () => {
             variants={fadeInUp}
             className="flex space-x-4 mt-8">
             {SOCIAL_MEDIA_ICONS.map((i, idx) => (
-              <a
+              <SocialIcon
                 key={idx}
-                href={i.url}
-                target="_blank"
-                className="text-primary hover:text-primary-foreground">
-                <i.icon size={VALUES.SOCIAL_ICON_SIZE} />
-              </a>
+                data={i}
+              />
             ))}
           </motion.div>
         </motion.div>
       </div>
 
       {/* Right Side (Illustration) */}
-      <div className="w-full md:w-1/2 flex justify-end">
+      <div className="max-xl:hidden w-full md:w-1/2 flex justify-end">
         <motion.div
           className="max-w-full h-auto"
           variants={fadeInUp}

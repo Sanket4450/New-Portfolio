@@ -1,4 +1,5 @@
 import { getFadeInUp, getStaggerChildren } from '@/lib/data'
+import { cn } from '@/lib/utils'
 import { VALUES } from '@/lib/values'
 import { Resource } from '@/types/common'
 import { motion } from 'motion/react'
@@ -25,16 +26,18 @@ export const SkillCategory: React.FC<Props> = ({ title, skills }) => {
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="grid grid-cols-1 phone:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-4">
         {skills.map((skill, idx) => (
           <motion.div
             key={idx}
             variants={fadeInUp}
-            className="bg-card rounded-lg px-4 flex items-center gap-3 shadow-md hover:shadow-lg transition-shadow duration-300"
-            style={{ height: VALUES.SKILL_CARD_HEIGHT }}>
+            className={cn(
+              'bg-card rounded-lg px-4 flex max-phone:flex-col items-center gap-2 phone:gap-3 shadow-md hover:shadow-lg transition-shadow duration-300',
+              VALUES.SKILL_CARD_HEIGHT_CLASS
+            )}>
             {/* Icon */}
             <div
-              className="shrink-0 h-full flex justify-center items-center"
+              className="shrink-0 max-phone:flex-1 phone:h-full flex justify-center items-center"
               style={{ width: VALUES.SKILL_ICON_CONTAINER_WIDTH }}>
               <skill.icon
                 size={VALUES.SKILL_ICON_WIDTH}
@@ -43,7 +46,7 @@ export const SkillCategory: React.FC<Props> = ({ title, skills }) => {
             </div>
 
             {/* Skill Name */}
-            <span className="text-lg font-medium">{skill.title}</span>
+            <p className="max-phone:h-9 phone:text-lg font-medium">{skill.title}</p>
           </motion.div>
         ))}
       </motion.div>

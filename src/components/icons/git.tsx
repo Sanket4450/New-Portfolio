@@ -7,8 +7,7 @@ export const GitIcon: React.FC<IconProps> = ({ size = VALUES.ICON_SIZE }) => {
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
-      width={size}
-      height={size}
+      width={size + 10}
       viewBox="0 0 48 48">
       <path
         fill="#F4511E"
